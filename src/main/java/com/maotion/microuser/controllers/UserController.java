@@ -13,12 +13,12 @@ public class UserController {
     private UserService userService;
 
     @Autowired
-    public UserController(UserService userService){
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 
     @PostMapping("/user")
-    public UserAccount setupUser(@RequestBody UserAccount userAccount){
+    public UserAccount setupUser(@RequestBody UserAccount userAccount) {
         return userService.save(userAccount);
     }
 }

@@ -7,18 +7,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.Map;
 
 @Entity
-public class UserAccount {
+public class UserAccount implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull(message = "user name cannot be null")
+    @Size(min = 3, message = "user name must not be less than 3 characters")
     private String userName;
+    @Email
     private String email;
     private boolean enabled = true;
     private String role;
+    @NotNull(message = "password cannot be null")
     private String password;
 
 
