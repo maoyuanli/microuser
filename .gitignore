@@ -29,3 +29,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### token ###
+token.json
+*.properties
+gitchain.sh
